@@ -13,10 +13,6 @@ html{scroll-behavior:smooth;}
 body{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:13px;line-height:1.5;}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6;}
 
-/* ── CONFIG BANNER ── */
-.config-banner{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--gold),#b8941a);color:#0D0F14;padding:12px 20px;text-align:center;font-size:12px;font-weight:700;z-index:9999;box-shadow:0 4px 12px rgba(212,175,55,.3);}
-.config-banner a{color:#0D0F14;text-decoration:underline;font-weight:800;}
-
 /* ── LOGIN SCREEN ── */
 #loginScreen{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;transition:opacity .3s,visibility .3s;}
 #loginScreen.hidden{opacity:0;visibility:hidden;pointer-events:none;}
@@ -44,11 +40,11 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 .login-switch span{color:var(--gold);cursor:pointer;font-weight:700;}
 
 /* ── APP CONTAINER ── */
-#app{position:relative;z-index:1;opacity:0;transition:opacity .3s;margin-top:48px;}
+#app{position:relative;z-index:1;opacity:0;transition:opacity .3s;}
 #app.ready{opacity:1;}
 
 /* ── SIDEBAR ── */
-.sidebar{position:fixed;left:0;top:48px;bottom:0;width:260px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:100;}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:100;}
 .sb-head{padding:24px 20px;border-bottom:1px solid var(--border);}
 .sb-logo{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
 .sb-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--gold),#a07d1a);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;box-shadow:0 3px 10px rgba(212,175,55,.3);}
@@ -196,17 +192,12 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   .projects-grid{grid-template-columns:1fr;}
   .kanban{grid-template-columns:1fr;}
   .team-grid{grid-template-columns:1fr;}
-  #app{margin-top:48px;}
 }
 </style>
 </head>
 <body>
 
-<!-- CONFIG BANNER -->
-<div class="config-banner">
-  ⚠️ <strong>Configure Supabase:</strong> Edit lines 16-17 in the code with your Supabase URL and API key. 
-  <a href="https://supabase.com/dashboard" target="_blank">Get credentials →</a>
-</div>
+
 
 <!-- ══════════════════════════════════════════════════════════════════ -->
 <!-- LOGIN SCREEN -->
@@ -590,8 +581,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 // SUPABASE CONFIG
 // ══════════════════════════════════════════════════════════════════
 
-const SUPABASE_URL = 'YOUR_SUPABASE_URL_HERE'; // e.g., 'https://xyz.supabase.co'
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY_HERE';
+const SUPABASE_URL = 'https://uvnyzutiibltbbbtlqvv.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV2bnl6dXRpaWJsdGJiYnRscXZ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxOTk4NjgsImV4cCI6MjA4OTc3NTg2OH0.WDtiYO9cNet_B9St3KuJM0Q5irky9Ws5WPCcZwtnsOk';
 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
